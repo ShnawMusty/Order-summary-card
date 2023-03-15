@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito&family=Red+Hat+Display&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  h1, h2, h3 {
+    line-height: 1;
+  }
+
+:root {
+    /* Primary */
+--Pale-blue: hsl(225, 100%, 94%);
+--Bright-blue: hsl(245, 75%, 52%);
+
+    /* Neutral */
+--Very-pale-blue: hsl(225, 100%, 98%);
+--Desaturated-blue: hsl(224, 23%, 55%);
+--Light-desaturated-blue: hsl(224, 23%, 93%);
+--Dark-blue: hsl(223, 47%, 23%);
+
+    /* FONT FAMILY */
+--ff: 'Red Hat Display', sans-serif;
+
+    /* FONT WEIGHT */
+--fw-regular: 500;
+--fw-semibold: 700;
+--fw-bold: 900;
+}
+
+/* General styling */
+body {
+    font-family: var(--ff);
+    font-weight: var(--fw-regular);
+    font-size: 1rem;
+    display: grid;
+    place-content: center;
+    background-image: url('../images/pattern-background-mobile.svg');
+    background-color: var(--Pale-blue);
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: var(--Desaturated-blue);
+    min-height: 100vh;
+}
+
+/* Utilities */
+.button {
+    border: 0;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    background-color: inherit;
+    
+}
+
+/* CARD */
+.card {
+    border-radius: 1rem;
+    overflow: hidden;
+    max-width: 400px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* CONTENT */
+.content {
+    --content-padding: 1.5rem;
+    --content-spacing: 1.5rem;
+
+    display: grid;
+    padding: var(--content-padding);
+    gap: var(--content-spacing);
+    background-color: var(--Very-pale-blue);
+}
+
+
+
+.content__title {
+    color: var(--Dark-blue);
+    font-size: 1.5rem;
+    font-weight: var(--fw-bold);
+    text-align: center;
+}
+
+.content p {
+    text-align: center;
+}
+
+.pricing {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Light-desaturated-blue);
+    padding: 1rem;
+    border-radius: 1rem;
+
+}
+
+.pricing[data-icon='icon-music']::before {
+    content: '';
+    width: 48px;
+    height: 48px;
+    background-image: url(../images/icon-music.svg);
+    margin-right: -7.5%;
+}
+
+.price {
+    display: grid;
+    padding-right: 2rem;
+}
+
+.price span {
+    color: var(--Dark-blue);
+    font-size: 1.2rem;
+    font-weight: var(--fw-bold);
+}
+
+.change {
+    color: var(--Bright-blue);
+    text-decoration: underline;
+    padding: 0;
+}
+
+.buy-order {
+    color: var(--Very-pale-blue);
+    background-color: var(--Bright-blue);
+    box-shadow: 0px 10px 15px 5px var(--Very-pale-blue);
+}
+
+.cancel-order {
+    color: var(--Desaturated-blue);
+    border: 0;
+    background-color: var(--Very-pale-blue);
+}
+
+.button:is(:hover, :focus) {
+    --Bright-blue: hsl(245, 75%, 72%);
+    --Desaturated-blue: hsl(224, 23%, 25%);
+
+}
+
+@media (min-width: 600px) {
+    body {
+        background-image: url('../images/pattern-background-desktop.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .content {
+        --content-padding: 2rem;
+    }
+    .pricing {
+        padding: 1rem;
+    }
+
+}
